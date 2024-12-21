@@ -1,0 +1,29 @@
+bmkgsoft.database.bmkg.go.id/MetView/
+
+User = ptspapi 
+
+pass.= ptspapi123
+
+//get token
+bmkgsoft.database.bmkg.go.id/MetView/webservice/GetSessionToken?user_id=ptspapi&password=ptspapi123
+
+token : 664D280DA163ECFF9E4B5D5EDE1B8664
+
+// list stasiun
+bmkgsoft.database.bmkg.go.id/MetView/webservice/GetStationList?token=664D280DA163ECFF9E4B5D5EDE1B8664
+-- tidak dapat data
+
+// detil stasiun
+http://bmkgsoft.database.bmkg.go.id/MetView/webservice/GetStationDetail?token=664D280DA163ECFF9E4B5D5EDE1B8664&station_id=83 
+
+
+ambil kode stasiun , misal Stasiun Meteorologi Maritim Tanjung Priok (96741)
+dari ketersediaan data : http://dataonline.bmkg.go.id/ketersediaan_data
+
+// get catalog element
+http://bmkgsoft.database.bmkg.go.id/MetView/webservice/GetCatalogElement?token=664D280DA163ECFF9E4B5D5EDE1B8664
+
+http://bmkgsoft.database.bmkg.go.id/MetView/webservice/GetCatalogAvailability?token=664D280DA163ECFF9E4B5D5EDE1B8664&limit=1&offset=1&start_date=01/01/2015&end_date=31/12/2015&element_nama=RAINFALL_ACC_AMT_1MN_MM
+
+//get DAta
+http://bmkgsoft.database.bmkg.go.id/MetView/webservice/GetData?token=664D280DA163ECFF9E4B5D5EDE1B8664&station_id=83&element=RAINFALL_ACC_AMT_1MN_MM&start_date=01/01/2016&end_date=30/12/2016

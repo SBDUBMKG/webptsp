@@ -1,0 +1,13 @@
+﻿.panel ul
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+.news-item
+{
+    padding:1px 1px;
+    margin:0px;
+    border-bottom:1px dotted #555; 
+}

@@ -1,0 +1,172 @@
+/* jssor slider arrow navigator skin 02 css */
+/*
+        .jssora02l                  (normal)
+        .jssora02r                  (normal)
+        .jssora02l:hover            (normal mouseover)
+        .jssora02r:hover            (normal mouseover)
+        .jssora02l.jssora02ldn      (mousedown)
+        .jssora02r.jssora02rdn      (mousedown)
+        .jssora02l.jssora02lds      (disabled)
+        .jssora02r.jssora02rds      (disabled)
+        */
+
+.jssora02l,
+.jssora02r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    background: url('a02.png') no-repeat;
+    overflow: hidden;
+}
+.jssora02l {
+    background-position: -3px -33px;
+}
+.jssora02r {
+    background-position: -63px -33px;
+}
+.jssora02l:hover {
+    background-position: -123px -33px;
+}
+.jssora02r:hover {
+    background-position: -183px -33px;
+}
+.jssora02l.jssora02ldn {
+    background-position: -3px -33px;
+}
+.jssora02r.jssora02rdn {
+    background-position: -63px -33px;
+}
+.jssora02l.jssora02lds {
+    background-position: -3px -33px;
+    opacity: .3;
+    pointer-events: none;
+}
+.jssora02r.jssora02rds {
+    background-position: -63px -33px;
+    opacity: .3;
+    pointer-events: none;
+}
+/* jssor slider thumbnail navigator skin 11 css */
+/*.jssort11 .p            (normal).jssort11 .p:hover      (normal mouseover).jssort11 .pav          (active).jssort11 .pav:hover    (active mouseover).jssort11 .pdn          (mousedown)*/
+
+.jssort11 .p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 50px;
+    background: #000000;
+}
+.jssort11 .tp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.jssort11 .i,
+.jssort11 .pav:hover .i {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 60px;
+    height: 30px;
+    border: white 1px dashed;
+}
+* html .jssort11 .i {
+    width
+    /**/
+    
+    : 62px;
+    height
+    /**/
+    
+    : 32px;
+}
+.jssort11 .pav .i {
+    border: white 1px solid;
+}
+.jssort11 .t,
+.jssort11 .pav:hover .t {
+    position: absolute;
+    text-align: center;
+    color: #fc9835;
+    font-size: 13px;
+    font-weight: 700;
+}
+.jssort11 .pav .t,
+.jssort11 .p:hover .t {
+    color: #fff;
+}
+.jssort11 .c,
+.jssort11 .pav:hover .c {
+    position: absolute;
+    top: 30px;
+    left: 3px;
+    width: 194px;
+    height: 32px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    overflow: hidden;
+}
+.jssort11 .pav .c,
+.jssort11 .p:hover .c {
+    color: #fc9835;
+}
+.jssort11 .t,
+.jssort11 .c {
+    transition: color 2s;
+    -moz-transition: color 2s;
+    -webkit-transition: color 2s;
+    -o-transition: color 2s;
+}
+.jssort11 .p:hover .t,
+.jssort11 .pav:hover .t,
+.jssort11 .p:hover .c,
+.jssort11 .pav:hover .c {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.jssort11 .p:hover,
+.jssort11 .pav:hover {
+    background: #333;
+}
+.jssort11 .pav,
+.jssort11 .p.pdn {
+    background: #fee50f;
+}
+
+
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/*jssor slider bullet skin 051 css*/
+.jssorb051 .i {position:absolute;cursor:pointer;}
+.jssorb051 .i .b {fill:#fff;fill-opacity:0.5;}
+.jssorb051 .i:hover .b {fill-opacity:.7;}
+.jssorb051 .iav .b {fill-opacity: 1;}
+.jssorb051 .i.idn {opacity:.3;}
+
+/*jssor slider arrow skin 051 css*/
+.jssora051 {display:block;position:absolute;cursor:pointer;}
+.jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
+.jssora051:hover {opacity:.8;}
+.jssora051.jssora051dn {opacity:.5;}
+.jssora051.jssora051ds {opacity:.3;pointer-events:none;}

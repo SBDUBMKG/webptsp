@@ -1,0 +1,606 @@
+
+
+/*
+====================================
+Medium Screen - Others
+====================================
+*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+.header-area .navbar {
+    padding: 15px 0;
+}
+
+.header-area .navbar-nav .nav-item {
+    padding: 0 25px 0 0;
+}
+
+.header-area .navbar-nav {
+    padding: 0px 35px 0px 20px;
+}
+
+.header-area .navbar-nav .nav-link,
+.header-area .navbar-nav .nav-item ul li a {
+    font-size: 17px;
+}
+
+#langChange {
+  margin-left: 20px;
+}
+
+#langChange label {
+  font-size: 15px;
+  padding: 3px 10px;
+}
+
+.hd-searchbar {
+    max-width: 150px;
+}
+
+.mausk a {
+    font-size: 16px;
+}
+
+.Jumlah-item {
+    min-height: 400px;
+}
+
+.Jumlah-item h3 {
+    font-size: 18px;
+}
+
+.Jumlah-item h4 {
+    font-size: 18px;
+}
+
+.Jumlah-item3 ul li {
+    width: 40%;
+    font-size: 15px;
+}
+
+.Jumlah-item3 ul li:last-child {
+    width: 55%;
+    padding: 2px 15px;
+}
+
+.Kalender-footer a {
+    font-size: 14px;
+}
+
+.top p {
+  font-size: 20px;
+}
+
+.calender-day p {
+    font-size: 14px;
+    padding: 5px 8px;
+}
+
+.down p{
+  font-size: 15px;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-prev {
+    left: 45%;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-next {
+    right: 45%;
+}
+
+
+
+
+}
+
+/*
+====================================
+Small Screen - Tablate
+====================================
+*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+.scrolltotop {
+    right: 20px;
+    bottom: 20px;
+}
+
+.header-area .navbar {
+    padding: 10px 0;
+}
+
+#langChange {
+  margin: 0px 0 0 10px;
+}
+
+.hd-searchbar {
+    margin: 20px 0 20px 10px;
+    max-width: 100%;
+}
+
+#langChange label[for="toEna"]::after {
+  content: "ENG";
+}
+#langChange label[for="toAra"]::after {
+  content: " ID";
+}
+
+.mausk a {
+    margin-left: 10px;
+}
+
+.footer-item-left a img {
+    max-width: 180px;
+}
+
+.katalog-item {
+    min-height: 220px;
+}
+
+.katalog-item1,
+.katalog-item2 {    
+    margin-bottom: 180px;
+}
+
+.Jumlah-item {
+    margin-bottom: 20px;
+}
+
+.Jumlah-item3 {
+    margin-bottom: 0px;
+}
+
+.Jumlah-item h3 {
+    font-size: 18px;
+}
+
+.Jumlah-item h4 {
+    font-size: 18px;
+}
+
+.Jumlah-item3 ul li {
+    width: 40%;
+    font-size: 15px;
+}
+
+.Jumlah-item3 ul li:last-child {
+    width: 55%;
+    padding: 2px 15px;
+}
+
+.Kalender-footer a {
+    font-size: 14px;
+}
+
+.top p {
+  font-size: 20px;
+}
+
+.calender-day p {
+    font-size: 14px;
+}
+
+.down p{
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-prev {
+    left: 43%;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-next {
+    right: 43%;
+}
+
+.beranda-area {
+    padding: 0px 0 60px 0;
+}
+
+.beranda-top ul {
+    margin-left: 29px;
+}
+
+.beranda-main {
+    padding: 25px 30px 45px 30px;
+}
+
+.beranda-main2 {
+    max-width: 100%;
+}
+
+.beranda-main-item {
+    max-width: 300px;
+}
+
+.beranda-main-item h3 {
+    font-size: 18px;
+}
+
+.beranda-circle {
+  width: 140px;
+  height: 140px;
+}
+
+.beranda-circle2 {
+  width: 105px;
+  height: 105px;
+  line-height: 105px;
+}
+
+.beranda-circle2 img {
+  max-width: 55px;
+}
+
+.beranda-item h5 {
+  font-size: 18px;
+}
+
+.data-diri-item select {
+    margin-bottom: 20px;
+} 
+
+.checkbox ul li:last-child label {
+    font-size: 15px;
+}
+
+.check-btn a {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+}
+
+/*
+====================================
+Small Screen - Mobile
+====================================
+*/
+@media screen and (max-width: 767px) {	
+
+.scrolltotop {
+    right: 20px;
+    bottom: 20px;
+}
+
+.header-area .navbar {
+    padding: 10px 0;
+}
+
+#langChange {
+  margin: 0px 0 0 10px;
+}
+
+.hd-searchbar {
+    margin: 20px 0 20px 10px;
+    max-width: 100%;
+}
+
+#langChange label[for="toEna"]::after {
+  content: "ENG";
+}
+#langChange label[for="toAra"]::after {
+  content: " ID";
+}
+
+.mausk a {
+    margin-left: 10px;
+}
+
+.main-content3 .owl-theme .custom-nav .owl-prev i, .main-content3 .owl-theme .custom-nav .owl-next i {
+    font-size: 20px;
+}
+
+.main-content3 .owl-theme .custom-nav .owl-prev,
+.main-content3 .owl-theme .custom-nav .owl-next {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.dengan {
+    padding: 20px 10px;
+}
+
+.dengan h2 {
+    font-size: 25px;
+}
+
+.dengan-item {
+    max-width: 100%;
+    padding: 10px 15px;
+    margin-top: 150px;
+}
+
+.pela-item p {
+    display: flex;
+    align-items: center;
+}
+
+.katalog-area {
+    border-radius: 50px 50px 0 0;
+}
+
+.katalog-item h5 {
+    font-size: 18px;
+}
+
+.katalog-item {
+    min-height: 220px;
+    margin-bottom: 180px;
+}
+
+.katalog-item4 {
+    margin-bottom: 0;
+}
+
+.Jumlah-item {
+    margin-bottom: 20px;
+}
+
+.Jumlah-item3 {
+    margin-bottom: 0px;
+}
+
+.Jumlah-item h3 {
+    font-size: 18px;
+}
+
+.Jumlah-item h4 {
+    font-size: 18px;
+}
+
+.Jumlah-item3 ul li {
+    width: 40%;
+    font-size: 15px;
+}
+
+.Jumlah-item3 ul li:last-child {
+    width: 55%;
+    padding: 2px 15px;
+}
+
+.Kalender-footer a {
+    font-size: 14px;
+}
+
+.top p {
+  font-size: 20px;
+}
+
+.calender-day p {
+    font-size: 14px;
+    padding: 5px 8px;
+}
+
+.down p{
+  font-size: 15px;
+}
+
+.berita-top-left {
+    max-width: 170px;
+}
+
+.berita-top-left ul li {
+    font-size: 16px;
+}
+
+.berita-top-left ul li:first-child {
+    margin-right: 50px;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-prev {
+    left: 36%;
+}
+
+.main-content2 .owl-theme .custom-nav .owl-next {
+    right: 36%;
+}
+
+.Tautan-bmk {
+    max-width: 100%;
+}
+
+.Login-form-area {
+    border-radius: 50px 50px 0 0;
+    padding: 30px 0;
+}
+
+.Login-box {
+    max-width: 100%;
+    padding: 20px 15px 30px 15px;
+}
+
+.Login-logo img {
+    max-width: 130px;
+}
+
+.Login-pen {
+    margin-top: 20px;
+}
+
+.Login-pen h3 {
+    font-size: 18px;
+}
+
+.Jumlah-border-left3 {
+    width: 45%;
+}
+
+.Jumlah-border-right3 {
+    width: 55%;
+}
+
+.Login-man-logo img {
+    max-width: 70px;
+}
+
+.Login-form .login-lupa a {
+    font-size: 14px;
+}
+
+.login-btn a {
+    font-size: 16px;
+}
+
+.dafter-left button {
+    font-size: 13px;
+    padding: 8px 45px;
+}
+
+.dafter-right button {
+    font-size: 13px;
+    padding: 8px 45px;
+}
+
+.beranda-area {
+    padding: 0px 0 50px 0;
+}
+
+.beranda-top ul {
+    margin-left: 9px;
+}
+
+.beranda-main {
+    padding: 25px 10px 45px 10px;
+}
+
+.beranda-main2 {
+    max-width: 100%;
+}
+
+.beranda-main-item {
+    max-width: 200px;
+}
+
+.beranda-main-item h3 {
+    font-size: 18px;
+}
+
+.beranda-circle {
+  width: 140px;
+  height: 140px;
+}
+
+.beranda-circle2 {
+  width: 105px;
+  height: 105px;
+  line-height: 105px;
+}
+
+.beranda-circle2 img {
+  max-width: 55px;
+}
+
+.beranda-item h5 {
+  font-size: 18px;
+}
+
+.data-area {
+    padding-bottom: 50px;
+}
+
+.data-main {
+    padding: 20px 15px;
+}
+
+.data-top-item {
+    max-width: 100%;
+}
+
+.data-top-item h3 {
+    font-size: 16px;
+}
+
+.Jumlah-border-left5 {
+    width: 73%;
+}
+
+.Jumlah-border-right5 {
+    width: 27%;
+}
+
+.data-diri-top {
+    margin: 20px 0;
+}
+
+.data-diri-top h3 {
+    font-size: 18px;
+}
+
+.data-diri-item label {
+    font-size: 14.5px;
+}
+
+.data-diri-item input {
+    margin-bottom: 15px;
+}
+
+.data-diri-item select {
+    margin-bottom: 15px;
+} 
+
+.inputfile + label {
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.contactform label.error {
+    margin: -15px 0 0 10px;
+}
+
+.checkbox ul li:last-child label {
+    font-size: 14px;
+}
+
+.check-btn a {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+.footer-item-left a img {
+    max-width: 150px;
+}
+
+.footer-item-left ul {
+    margin-top: 20px;
+}
+
+.footer-item-right-cnt {
+    max-width: 100%;
+    margin: 30px 0 0 0;
+}
+
+.copy-right span {
+    width: 90%;
+}
+
+.copy-right a {
+    padding: 0 10px;
+}
+
+
+}
+
+/*
+====================================
+Xtra Small Screen - Small Mobile
+====================================
+*/
+@media screen and (max-width: 576px) {}

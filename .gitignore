@@ -1,0 +1,12 @@
+upload/*
+upload/permohonan/*
+upload/pengantar/*
+upload/bukti/*
+upload/slider/*
+captcha
+application/config/database.php
+application/config/config.php
+application/logs/*
+.env
+.zed
+.vscode

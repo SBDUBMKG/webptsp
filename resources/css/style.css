@@ -1,0 +1,22 @@
+.dt-button {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.dt-buttons { background-color: #FFFFFF; z-index: 999999; }
+.dt-buttons .dt-button { margin-right: 5px }
+.fixedHeader { background-color: #FFFFFF; opacity: 1; }
+@media print {
+    .box {
+        border-top: 0;
+    }
+    .main-footer {
+        display: none;
+    }
+    .unprint { display: none; }
+    td, th { padding: 0 }
+}
+tbody>tr.selected {
+    background-color: #FBEC88;
+}

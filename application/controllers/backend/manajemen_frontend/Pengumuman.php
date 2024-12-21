@@ -1,0 +1,225 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+class Pengumuman extends MY_Controller {
+    var $page_title = 'Kelola Pengumuman';
+    var $column_datatable = array('id_pengumuman', 'judul','judul_en','isi','isi_en','created_by','created_date','is_publish','expired_date');
+    var $folder         = 'backend/manajemen_frontend';
+    var $module         = '';
+
+    function __construct(){
+        parent::__construct();
+        $module = $this->folder.'/'.$this->router->fetch_class();
+        $this->load->model($this->folder.'/'.'pengumuman_model', 'app_model');
+        $this->app_model->initialize($module);
+        $this->module = $module;
+    }
+
+    public function index()
+    {
+        $module =$this->module;
+        //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (15 Mei 2024)
+        $script = '
+			$(function () {
+				$("#datatable").DataTable({
+                    '.($this->is_write ? '"aoColumnDefs": [{"bSortable": false, "aTargets": [2]}],' : NULL).'
+                    "processing": true,
+                    "serverSide": true,
+                    "responsive": true,
+                    "ajax" : "'.base_url().$this->module.'/getDataTable"
+                });
+			});
+			';
+        //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (15 Mei 2024)
+        $data['title'] = $this->page_title;
+        $this->template->add_css('resources/plugins/datatables/dataTables.bootstrap.css');
+        $this->template->add_css('resources/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css');
+        $this->template->add_js('resources/plugins/datatables/jquery.dataTables.min.js');
+        $this->template->add_js('resources/plugins/datatables/dataTables.bootstrap.min.js');
+        $this->template->add_js('resources/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js');
+        $this->template->add_js('resources/plugins/datatables/dataTables.buttons.min.js');
+        $this->template->add_js('resources/plugins/datatables/buttons.flash.min.js');
+        $this->template->add_js('resources/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js');
+
+        $this->template->add_js($script,'embed');
+        $this->template->write('title', $data['title']);
+        $this->template->write_view('content', $module.'/datatable', $data, true);
+        $this->template->render();
+    }
+    function getDataTable()
+    {
+        $iDisplayStart = $this->input->get_post('start', true);
+        $iDisplayLength = $this->input->get_post('length', true);
+        $order = $this->input->get_post('order', true);
+        $sSearch = $this->input->get_post('search', true);
+
+        $view = $this->app_model->show_datatable($this->column_datatable, $iDisplayStart,$iDisplayLength,$order,$sSearch);
+
+        echo $view;
+    }
+    private function valid_form($act = 'add') {
+        $this->load->library('form_validation');
+        $config = array(
+                    array(
+                        'field' => 'judul',
+                        'label' => 'Judul',
+                        'rules' => 'required|max_length[255]'
+                    ),
+
+                    array(
+                        'field' => 'judul_en',
+                        'label' => 'Judul En',
+                        'rules' => 'required|max_length[255]'
+                    ),
+
+                    array(
+                        'field' => 'isi',
+                        'label' => 'Isi',
+                        'rules' => 'required|max_length[65535]'
+                    ),
+
+                    array(
+                        'field' => 'isi_en',
+                        'label' => 'Isi En',
+                        'rules' => 'required|max_length[65535]'
+                    ),
+                );
+        $this->form_validation->set_rules($config);
+    }
+    function add() {
+        $this->load->model('global_model');
+        $module = $this->module;
+        $data['detail']     = array();
+        $data['title']      = "Tambah Data";
+        $data['url_back']   = "window.location.href='".base_url().$module."'";
+        $errMsg = NULL;
+
+        if($_POST)
+        {
+            $data_post      = $this->input->post();
+            $data['detail'] = $data_post;
+            $data_insert    = array();
+            $simpan         = true;
+            $this->valid_form(strtolower(__FUNCTION__));
+
+            if ( $this->form_validation->run() == FALSE ) {
+                $simpan = false;
+                $errMsg = '<ul>'.validation_errors('<li>','</li>').'</ul>';
+            }
+
+            if ( $simpan ) {
+                $data_insert = array(
+                    'judul' => strip_tags($this->input->post('judul')),
+                    'judul_en' => strip_tags($this->input->post('judul_en')),
+                    'isi' => $this->input->post('isi'),
+                    'isi_en' => $this->input->post('isi_en'),
+                    'created_by' => $_SESSION['username'],
+                    'created_date' => date("YmdHis"),
+                    'expired_date' => $this->input->post('expired_date'),
+                	'is_publish' => strip_tags($this->input->post('is_active')),
+                );
+
+                $insert = $this->app_model->insert_data($data_insert);
+                if ( $insert ) {insert_log('Tambah pengumuman<br/><p><em>'.$data_insert['judul'].'</em></p>');
+                    redirect(base_url().$module);
+                } else {
+                    $errMsg = 'Data gagal disimpan';
+                }
+            }
+        }
+        $data['page_title'] = $this->page_title;
+        $data['errMsg']     = $errMsg;
+        $this->template->add_css('resources/plugins/select2/select2.min.css');
+        $this->template->add_css('resources/plugins/select2/select2-bootstrap.min.css');
+        $this->template->add_css('resources/plugins/summernote/summernote.css');
+        $this->template->add_js('resources/plugins/select2/placeholders.jquery.min.js');
+        $this->template->add_js('resources/plugins/select2/select2.min.js');
+        $this->template->add_js('resources/plugins/summernote/summernote.min.js');
+        $this->template->write('title', 'Tambah '.$this->page_title);
+        $this->template->write_view('content', $module.'/form', $data, true);
+        $this->template->render();
+    }
+    function edit($id = 0) {
+        $this->load->model('global_model');
+        $module = $this->module;
+        $data['detail'] = $this->app_model->get_by_id($id);
+        if ( !$data['detail'] ) {
+            show_404();
+            return;
+        }
+        $data['title'] = "Edit Data";
+        $data['url_back'] = "window.location.href='".base_url().$this->module."'";
+        $errMsg = NULL;
+
+        if($_POST)
+        {
+            $data_post      = $this->input->post();
+            $data['detail'] = $data_post;
+            $simpan         = true;
+
+            $this->valid_form('edit');
+
+            if ( $this->form_validation->run() == FALSE ) {
+                $simpan = false;
+                $errMsg = '<ul>'.validation_errors('<li>','</li>').'</ul>';
+            }
+
+            if ( $simpan ) {
+                $data_update = array(    'judul' => strip_tags($this->input->post('judul')),
+                'judul_en' => strip_tags($this->input->post('judul_en')),
+                'isi' => $this->input->post('isi'),
+                'isi_en' => $this->input->post('isi_en'),
+                // 'file' => strip_tags($this->input->post('file')),
+                'created_by' => $_SESSION['username'],
+                'created_date' => date("YmdHis"),
+                'expired_date' => $this->input->post('expired_date'),
+                //'is_publish' => $this->input->post('is_active'),
+
+                // awal script yang diedit rahmat 23 maret 2020
+                'is_publish' => strip_tags($this->input->post('is_active')),
+                // akhir script yang diedit rahmat 23 maret 2020
+            );
+                $update = $this->app_model->update_data($id, $data_update);
+                if ( $update ) {insert_log('Edit pengumuman<br/><p><em>'.$data_update['judul'].'</em></p>');
+                    redirect(base_url().$module);
+                } else {
+                    $errMsg = 'Data gagal disimpan';
+                }
+            }
+        }
+        $data['page_title'] = $this->page_title;
+        $data['id'] = $id;
+        $data['errMsg'] = $errMsg;
+        $this->template->add_css('resources/plugins/select2/select2.min.css');
+        $this->template->add_css('resources/plugins/select2/select2-bootstrap.min.css');
+        $this->template->add_css('resources/plugins/summernote/summernote.css');
+        $this->template->add_js('resources/plugins/select2/placeholders.jquery.min.js');
+        $this->template->add_js('resources/plugins/select2/select2.min.js');
+        $this->template->add_js('resources/plugins/summernote/summernote.min.js');
+        $this->template->write('title', 'Edit '.$this->page_title);
+        $this->template->write_view('content', $module.'/form', $data, true);
+        $this->template->render();
+    }
+    function delete($id = '') {		$detail = $this->app_model->get_by_id($id);		insert_log('Hapus pengumuman<br/><p><em>'.$detail['judul'].'</em></p>');
+        $this->app_model->delete_data($id);
+        redirect(base_url().$this->module);
+    }
+
+    function show($id){
+        $module = $this->module;
+		$detail = $this->app_model->get_by_id($id);
+        $this->load->model('global_model');
+        $show = $this->global_model->get_by_id_array('tbl_pengumuman','id_pengumuman',$id);
+        $status = $show['is_publish'] == '0' ? '1' : '0';		$string_status = $status == '1' ? 'Publish' : 'Unpublish';
+        $data_update = array(
+                'is_publish' => $status
+            );
+        $update = $this->global_model->update_data('tbl_pengumuman', 'id_pengumuman', $id,$data_update);
+        if ( $update ) {
+			insert_log($string_status.' pengumuman<br/><p><em>'.$detail['judul'].'</em></p>');
+            redirect(base_url().$module);
+        } else {
+            echo 'Data gagal disimpan';
+        }
+
+    }
+}
