@@ -30,9 +30,7 @@
                                         <th style="text-align:center">Tanggal</th>
                                         <th style="width:20px;text-align:center">Jumlah<br>Hari</th>
                                         <th  style="text-align:center">Keterangan</th>        
-    <?php                               echo $this->is_write ? '<th style="width: 75px;text-align: center;">Navigasi</th>' : NULL; 
-    ?>                              </tr>
-                                </thead>
+    					<?php echo $this->is_write ? '<th style="width: 100px;text-align: center;">Navigasi</th>' : NULL; ?>                                  </thead>
                                 <tbody></tbody>
                             </table>
                         </div>

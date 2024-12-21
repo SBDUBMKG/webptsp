@@ -81,15 +81,14 @@
                 if($jml_hari == 0) $jml_hari=1;else $jml_hari++;
                 $row[] = $jml_hari;
                 $row[] = $aRow['keterangan'];
-                //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (22 Mei 2024)
-                if ( $this->is_write ) {
-                    $row[] .= "<div class='btn-group'>
-                        <a href='".base_url().strtolower($this->module).'/edit/'.$aRow[$this->pk_name]."'><span class='btn btn-xs btn-primary btn-block' style='margin-bottom:2px;width:75px'><i class='fa fa-pencil'></i> Edit</span></a>
-                        <a href='".base_url().strtolower($this->module).'/delete/'.$aRow[$this->pk_name]."' onclick='return confirm(\"Apa anda yakin menghapus data ini?\")'><span class='btn btn-xs btn-danger btn-block' style='margin-bottom:2px;width:75px'><i class='fa fa-trash'></i> Hapus</span></a>
-                    </div>";
-                }
-                //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (22 Mei 2024)
-
+                //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (16 Mei 2024)
+            if ( $this->is_write ) {
+                $row[] .= "<center>
+				<a href='".base_url().strtolower($this->module).'/edit/'.$aRow[$this->pk_name]."'><span class='btn btn-xs btn-success'><i class='fa fa-pencil'></i> Edit</span></a>
+                <a href='".base_url().strtolower($this->module).'/delete/'.$aRow[$this->pk_name]."' onclick='return confirm(\"Apa anda yakin menghapus data ini?\")'><span class='btn btn-xs btn-danger'><i class='fa fa-trash'></i> Hapus</span></a>
+				</center>";
+            }
+            //Baris awal penggantian tombol navigasi. Perbaikan oleh Nurhayati Rahayu (16 Mei 2024)
                 $output['aaData'][] = $row;
                 $i++;
                 $nomor++;

@@ -14,14 +14,14 @@ class Katalog_pelayanan extends CI_Controller
         $module       = $this->folder . '/' . $this->router->fetch_class();
         $this->module = $module;
         $this->load->library('cart');
+
+        $libur = $this->global_model->get_count_data('tbl_libur','curdate() between tgl_mulai and tgl_akhir');
+        if ($libur) redirect('v_404');
     }
 
     public function index()
     {
         $data = array();
-
-        $libur = $this->global_model->get_count_data('tbl_libur','curdate() between tgl_mulai and tgl_akhir');
-        if ($libur) redirect('v_404');
 
         $data['title']         = "Katalog Pelayanan";
         $data['bahasa']        = $this->session->userdata('bahasa');

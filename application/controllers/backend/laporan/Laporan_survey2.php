@@ -537,6 +537,8 @@ class Laporan_survey2 extends MY_Controller
 
     public function laporan()
     {
+	ini_set('memory_limit', '2048M');
+
         $this->load->helper("skm");
         $this->load->helper("tgl_indo");
         $this->load->library("pdf");

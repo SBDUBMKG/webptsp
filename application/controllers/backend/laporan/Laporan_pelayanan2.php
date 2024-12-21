@@ -358,6 +358,8 @@ class Laporan_pelayanan2 extends MY_Controller {
     }
 
     public function laporan() {
+	ini_set('memory_limit', '2048M');
+
         $this->load->library('pdf');
 
         $year = (int) $this->input->get('tahun');
