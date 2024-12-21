@@ -10,3 +10,4 @@ application/logs/*
 .env
 .zed
 .vscode
+.gitignore
