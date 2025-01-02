@@ -15,6 +15,19 @@ $this->lang->load('backend/service_request/datatable', $curr_lang);
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
+                <?php
+                if ( $this->is_write && $id_role == 7 ) {
+                    ?>
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <button class="btn btn-primary" onClick="document.location = '<?php echo base_url().'/katalog_pelayanan' ?>'">Tambah Data</button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?> 
                   <div class="box-body">
                   <div class="table-responsive">
                     <table class="table table-bordered" id="datatable">
